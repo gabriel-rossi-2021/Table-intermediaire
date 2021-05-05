@@ -47,7 +47,7 @@ def films_genres_afficher(id_film_sel):
                 raise MaBdErreurConnexion(f"{msg_erreurs['ErreurConnexionBD']['message']} {erreur.args[0]}")
 
             with MaBaseDeDonnee().connexion_bd.cursor() as mc_afficher:
-                strsql_genres_films_afficher_data = """SELECT id_collaborateur, nom_famille, prenom as GenresFilms FROM t_collaborateur_details_collaborateur
+                strsql_genres_films_afficher_data = """SELECT id_collaborateur, nom_famille, prenom FROM t_collaborateur_details_collaborateur
                                                             RIGHT JOIN t_collaborateur ON t_collaborateur.id_collaborateur = t_collaborateur_details_collaborateur.fk_collaborateur
                                                             LEFT JOIN t_details_collaborateur ON t_details_collaborateur.id_details_collaborateur = t_collaborateur_details_collaborateur.fk_details_collaborateur
                                                             GROUP BY id_collaborateur"""
